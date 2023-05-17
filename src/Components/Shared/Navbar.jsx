@@ -108,7 +108,7 @@ const Navbar = () => {
               <img
                 src="https://i.ibb.co/Jxwf43K/logo-removebg-preview.png"
                 alt=""
-                className="h-40 w-40"
+                className="h-20 w-40"
               />
             </a>
           </div>
