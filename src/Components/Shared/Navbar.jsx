@@ -72,7 +72,7 @@ const Navbar = () => {
                       : "text-yellow-500  ms-4 font-semibold text-decoration-none "
                   }
                 >
-                  About Us
+                  All Toys
                 </NavLink>
               </li>
               <li>
@@ -113,7 +113,7 @@ const Navbar = () => {
             </a>
           </div>
         </div>
-        <Navbar className=" hidden lg:flex justify-between items-center ">
+        <div className=" hidden lg:flex justify-between items-center ">
           <div className="text-lg">
             <NavLink
               to="/"
@@ -130,18 +130,18 @@ const Navbar = () => {
               to="/about"
               className={({ isActive }) =>
                 isActive
-                  ? "font-semibold  text-white ms-4"
-                  : "text-yellow-500  ms-4 font-semibold text-decoration-none "
+                  ? "font-semibold text-orange-600  ms-4"
+                  : "text-red-600  ms-4 font-semibold text-decoration-none "
               }
             >
-              About Us
+              All Toys
             </NavLink>
             <NavLink
               to="/blogs"
               className={({ isActive }) =>
                 isActive
-                  ? " font-semibold  text-white ms-4"
-                  : "text-yellow-500 ms-4 font-semibold text-decoration-none "
+                  ? "font-semibold text-orange-600  ms-4"
+                  : "text-red-600  ms-4 font-semibold text-decoration-none "
               }
             >
               Blogs
@@ -151,14 +151,14 @@ const Navbar = () => {
               to="/login"
               className={({ isActive }) =>
                 isActive
-                  ? " text-black font-semibold   ms-4"
-                  : " text-yellow-500   ms-4 font-semibold text-decoration-none "
+                  ? "font-semibold text-orange-600  ms-4"
+                  : "text-red-600  ms-4 font-semibold text-decoration-none "
               }
             >
               Login
             </NavLink>
           </div>
-        </Navbar>
+        </div>
       </div>
     </div>
   );
