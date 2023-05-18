@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
   const [scroll, setScroll] = useState(false);
   const handleScroll = () => {
     if (window.pageYOffset > 0) {
@@ -16,6 +19,15 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  console.log(user?.email);
+  const handleLogout = () => {
+    logOut()
+      .then()
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="relative">
@@ -127,7 +139,7 @@ const Navbar = () => {
             </NavLink>
 
             <NavLink
-              to="/about"
+              to="/allToys"
               className={({ isActive }) =>
                 isActive
                   ? "font-semibold text-orange-600  ms-4"
@@ -136,6 +148,33 @@ const Navbar = () => {
             >
               All Toys
             </NavLink>
+
+            {user && (
+              <>
+                <NavLink
+                  to="/myToys"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "font-semibold text-orange-600  ms-4"
+                      : "text-red-600  ms-4 font-semibold text-decoration-none"
+                  }
+                >
+                  My Toys
+                </NavLink>
+
+                <NavLink
+                  to="/addToy"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "font-semibold text-orange-600  ms-4"
+                      : "text-red-600  ms-4 font-semibold text-decoration-none"
+                  }
+                >
+                  Add A Toy
+                </NavLink>
+              </>
+            )}
+
             <NavLink
               to="/blogs"
               className={({ isActive }) =>
@@ -147,16 +186,43 @@ const Navbar = () => {
               Blogs
             </NavLink>
 
-            <NavLink
-              to="/login"
-              className={({ isActive }) =>
-                isActive
-                  ? "font-semibold text-orange-600  ms-4"
-                  : "text-red-600  ms-4 font-semibold text-decoration-none "
-              }
-            >
-              Login
-            </NavLink>
+            {user ? (
+              <div className="">
+                <button className="btn btn-ghost normal-case rounded">
+                  <img
+                    src={user.photoURL}
+                    alt="User Profile"
+                    className="h-8 w-8 rounded-full"
+                  />
+                </button>
+                <ul className="menu dropdown-content mt-2 p-2 shadow bg-white rounded-box w-40">
+                  <li>
+                    <span className="font-semibold text-gray-800">
+                      {user.displayName}
+                    </span>
+                  </li>
+                  <li>
+                    <button
+                      className="btn btn-ghost bg-red-600 normal-case rounded"
+                      onClick={handleLogout}
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-semibold text-orange-600  ms-4"
+                    : "text-red-600  ms-4 font-semibold text-decoration-none"
+                }
+              >
+                Login
+              </NavLink>
+            )}
           </div>
         </div>
       </div>
