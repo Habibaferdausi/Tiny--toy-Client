@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import UpdateModal from "./UpdateModal";
 
 const MyToy = () => {
   const { user } = useContext(AuthContext);
@@ -13,91 +14,70 @@ const MyToy = () => {
         setToys(data);
       });
   }, [user]);
-  return (
-    <div>
-      <div className="mt-20 text-red-600 text-center text-lg font-bold">
-        All Toys
-      </div>
-      <div className="overflow-x-auto mt-10">
-        <table className="table w-full">
-          {/* head */}
-          <thead className="">
-            <tr className="text-center">
-              <th></th>
-              <th> Toy Name</th>
-              <th>Photo</th>
-              <th>Seller Name</th>
-              <th>Seller Email</th>
-              <th>Sub-category</th>
-              <th>Price</th>
-              <th>Rating</th>
-              <th>Available Quantity</th>
-              <th>Description</th>
-              <th>Update/ Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {toys?.map((toy, index) => (
-              <tr className="text-center" key={toy.id}>
-                <td>{index + 1}</td>
-                <td>{toy.name}</td>
-                <td>
-                  {" "}
-                  <img src={toy.photo} className="h-40 w-40" />
-                </td>
-                <td>{toy.sellerName}</td>
-                <td>{toy.sellerEmail}</td>
-                <td>{toy.subCategory}</td>
-                <td>{toy.price}$</td>
-                <td>{toy.rating}</td>
-                <td>{toy.quantity}</td>
-                <td>
-                  <div data-tippy-content="{toy.description}">
-                    {toy.description.substring(0, 20) + "..."}
-                  </div>
-                </td>
 
-                <td>
-                  <button className="btn btn-circle btn-outline">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </button>
-                  <button className="btn btn-circle btn-outline">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </button>
-                </td>
+  const handleUpdate = (toy) => {
+    return (
+      <div>
+        <div className="mt-20 text-red-600 text-center text-lg font-bold">
+          All Toys
+        </div>
+        <div className="overflow-x-auto mt-10">
+          <table className="table w-full">
+            {/* head */}
+            <thead className="">
+              <tr className="text-center">
+                <th></th>
+                <th>Toy Name</th>
+                <th>Photo</th>
+                <th>Seller Name</th>
+                <th>Seller Email</th>
+                <th>Sub-category</th>
+                <th>Price</th>
+                <th>Rating</th>
+                <th>Available Quantity</th>
+                <th>Description</th>
+                <th>Update/Delete</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {toys?.map((toy, index) => (
+                <tr className="text-center" key={toy.id}>
+                  <td>{index + 1}</td>
+                  <td>{toy.name}</td>
+                  <td>
+                    <img src={toy.photo} className="h-40 w-40" alt={toy.name} />
+                  </td>
+                  <td>{toy.sellerName}</td>
+                  <td>{toy.sellerEmail}</td>
+                  <td>{toy.subCategory}</td>
+                  <td>{toy.price}$</td>
+                  <td>{toy.rating}</td>
+                  <td>{toy.quantity}</td>
+                  <td>
+                    <div className="w-40 overflow-x-scroll">
+                      {toy.description}
+                    </div>
+                  </td>
+                  <td>
+                    <button className="btn btn-circle me-2 bg-white border border-0 hover:bg-red-200">
+                      <img src="https://freesvg.org/img/edit-icon.png" alt="" />
+                    </button>
+
+                    <button className="btn btn-circle ms-3 bg-white border border-0 hover:bg-red-200">
+                      <img
+                        src="https://freesvg.org/img/jean_victor_balin_cross.png"
+                        alt=""
+                      />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
 };
 
 export default MyToy;
