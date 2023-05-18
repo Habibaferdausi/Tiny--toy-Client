@@ -32,7 +32,7 @@ const MyToy = () => {
               <th>Price</th>
               <th>Rating</th>
               <th>Available Quantity</th>
-              <th className="w-1/2">Description</th>
+              <th>Description</th>
               <th>Update/ Delete</th>
             </tr>
           </thead>
@@ -51,44 +51,45 @@ const MyToy = () => {
                 <td>{toy.price}$</td>
                 <td>{toy.rating}</td>
                 <td>{toy.quantity}</td>
-                <td className="w-1/2">{toy.description}</td>
                 <td>
-                  <button className="btn btn-circle btn-outline">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </button>
-                  <button className="btn btn-circle btn-outline">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </button>
+                  <div data-tippy-content="{toy.description}">
+                    {toy.description.substring(0, 20) + "..."}
+                  </div>
                 </td>
 
                 <td>
-                  <button>View</button>
+                  <button className="btn btn-circle btn-outline">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                  <button className="btn btn-circle btn-outline">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
                 </td>
               </tr>
             ))}
