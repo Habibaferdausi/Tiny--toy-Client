@@ -21,7 +21,7 @@ const Banner = () => {
             <div className="w-1/2">
               <img
                 src="https://img.freepik.com/free-vector/shelf-box-full-toys-white_1308-41753.jpg?w=826&t=st=1684343535~exp=1684344135~hmac=d57d0e84862b4528e3b503c4f621e346626208ef43b4abf71e16ff9ee517ff67"
-                className="w-full h-full"
+                className="w-full h-500"
               />
             </div>
           </div>

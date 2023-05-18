@@ -21,22 +21,30 @@ const SortByCategory = () => {
   return (
     <div>
       <div>
-        <h1 className="title text-center mt-5 p-5">Available Job's</h1>
+        <h1 className="title text-center mt-5 p-5">Sort by categories</h1>
         <div className="tab-container text-center">
           <div className="text-center w-100 m-auto">
-            <div className="tabs d-flex justify-content-center align-items-center">
+            <div className="tabs flex justify-center items-center">
               <div
                 onClick={() => handleTabClick("teddyBear")}
-                className={`tab  tab2 teddyBear ${
-                  activeTab == "teddyBear" ? " bg-danger text-white" : ""
+                className={`tab  tab-bordered teddyBear ${
+                  activeTab == "teddyBear" ? "text-red-500 tab-active" : ""
                 }`}
               >
                 teddy
               </div>
               <div
+                onClick={() => handleTabClick("dinosaur")}
+                className={`tab tab-bordered dinosaur ${
+                  activeTab == "dinosaur" ? " text-red-500 tab-active" : ""
+                }`}
+              >
+                dinosaur
+              </div>
+              <div
                 onClick={() => handleTabClick("horse")}
-                className={`tab  tab2 horse ${
-                  activeTab == "horse" ? " bg-danger text-white" : ""
+                className={`tab tab-bordered horse ${
+                  activeTab == "horse" ? "text-red-500 tab-active" : ""
                 }`}
               >
                 horse

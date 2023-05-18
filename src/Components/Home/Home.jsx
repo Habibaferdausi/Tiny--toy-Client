@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import About from "./About";
 import Gallery from "./Gallery";
 import SortByCategory from "./SortByCategory";
+import Slider from "./Slider";
 
 const Home = () => {
   return (
