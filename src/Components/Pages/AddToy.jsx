@@ -4,29 +4,43 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 const AddToy = () => {
   const { user } = useContext(AuthContext);
 
-  const [toyData, setToyData] = useState({
-    pictureUrl: "",
-    name: "",
-    sellerName: "",
-    sellerEmail: "",
-    subCategory: "",
-    price: "",
-    rating: "",
-    availableQuantity: "",
-    description: "",
-  });
-
-  const handleChange = (e) => {
-    setToyData({
-      ...toyData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log(toyData);
+
+    const form = e.target;
+    const name = form.name.value;
+    const photo = form.pictureUrl.value;
+    const sellerName = form.sellerName.value;
+
+    const sellerEmail = form.sellerEmail.value;
+    const subCategory = form.subCategory.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const quantity = form.quantity.value;
+    const description = form.description.value;
+
+    const toys = {
+      name,
+      photo,
+      sellerName,
+      sellerEmail,
+      subCategory,
+      price,
+      rating,
+      quantity,
+      description,
+    };
+    console.log(toys);
+
+    fetch("http://localhost:5000/addToy", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(toys),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
 
   return (
@@ -34,29 +48,13 @@ const AddToy = () => {
       <div className="mt-20 mb-20 ">
         <h1 className="mt-10 pt-10 mb-10 text-center font-bold">
           {" "}
-          Welcome <span className="text-red-500">{user.displayName}</span> To
+          Welcome <span className="text-red-500">{user?.displayName}</span> To
           zoo Zone Toys{" "}
         </h1>
       </div>
 
-      <div className="flex justify-center mt-10">
-        <form className="w-full max-w-lg" onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label
-              htmlFor="pictureUrl"
-              className="block text-gray-700 font-bold mb-2"
-            >
-              Picture URL of the toy:
-            </label>
-            <input
-              type="text"
-              id="pictureUrl"
-              name="pictureUrl"
-              value={toyData.pictureUrl}
-              onChange={handleChange}
-              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
+      <div className="flex justify-center bg-red-200   mt-10">
+        <form className="w-full max-w-lg " onSubmit={handleSubmit}>
           <div className="mb-4">
             <label
               htmlFor="name"
@@ -68,8 +66,20 @@ const AddToy = () => {
               type="text"
               id="name"
               name="name"
-              value={toyData.name}
-              onChange={handleChange}
+              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="pictureUrl"
+              className="block text-gray-700 font-bold mb-2"
+            >
+              Picture URL of the toy:
+            </label>
+            <input
+              type="text"
+              id="pictureUrl"
+              name="pictureUrl"
               className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
@@ -78,14 +88,14 @@ const AddToy = () => {
               htmlFor="sellerName"
               className="block text-gray-700 font-bold mb-2"
             >
-              Seller Name (if available):
+              Seller Name :
             </label>
             <input
               type="text"
               id="sellerName"
               name="sellerName"
-              value={toyData.sellerName}
-              onChange={handleChange}
+              value={user?.displayName}
+              defaultValue={user?.displayName}
               className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
@@ -100,8 +110,8 @@ const AddToy = () => {
               type="email"
               id="sellerEmail"
               name="sellerEmail"
-              value={toyData.sellerEmail}
-              onChange={handleChange}
+              defaultValue={user?.email}
+              value={user?.email}
               className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
@@ -110,19 +120,16 @@ const AddToy = () => {
               htmlFor="subCategory"
               className="block text-gray-700 font-bold mb-2"
             >
-              Sub-category:
+              Category:
             </label>
             <select
               id="subCategory"
               name="subCategory"
-              value={toyData.subCategory}
-              onChange={handleChange}
               className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             >
-              <option value="">Select Sub-category</option>
-              <option value="Math Toys">Math Toys</option>
-              <option value="Language Toys">Language Toys</option>
-              <option value="Science Toys">Science Toys</option>
+              <option value="teddyBear">Teddy Bear</option>
+              <option value="dinosaur">Dinosaur Toy</option>
+              <option value="horse">Horse Toy</option>
             </select>
           </div>
           <div className="mb-4">
@@ -133,11 +140,9 @@ const AddToy = () => {
               Price:
             </label>
             <input
-              type="number"
+              type="text"
               id="price"
               name="price"
-              value={toyData.price}
-              onChange={handleChange}
               className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
@@ -149,27 +154,23 @@ const AddToy = () => {
               Rating:
             </label>
             <input
-              type="number"
+              type="text"
               id="rating"
               name="rating"
-              value={toyData.rating}
-              onChange={handleChange}
               className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
           <div className="mb-4">
             <label
-              htmlFor="availableQuantity"
+              htmlFor="quantity"
               className="block text-gray-700 font-bold mb-2"
             >
               Available Quantity:
             </label>
             <input
               type="number"
-              id="availableQuantity"
-              name="availableQuantity"
-              value={toyData.availableQuantity}
-              onChange={handleChange}
+              id="quantity"
+              name="quantity"
               className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
@@ -178,13 +179,11 @@ const AddToy = () => {
               htmlFor="description"
               className="block text-gray-700 font-bold mb-2"
             >
-              Detail Description:
+              Description:
             </label>
             <textarea
               id="description"
               name="description"
-              value={toyData.description}
-              onChange={handleChange}
               className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               rows="5"
             ></textarea>
@@ -194,7 +193,7 @@ const AddToy = () => {
               type="submit"
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
-              Submit
+              Upload
             </button>
           </div>
         </form>

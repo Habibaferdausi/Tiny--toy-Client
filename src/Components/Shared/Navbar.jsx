@@ -116,13 +116,13 @@ const Navbar = () => {
 
           <div className="lg:px-8 flex">
             {" "}
-            <a className="btn btn-ghost normal-case  rounded">
+            <div className="btn btn-ghost normal-case  rounded">
               <img
                 src="https://i.ibb.co/Jxwf43K/logo-removebg-preview.png"
                 alt=""
                 className="h-20 w-40"
               />
-            </a>
+            </div>
           </div>
         </div>
         <div className=" hidden lg:flex justify-between items-center ">
