@@ -187,30 +187,32 @@ const Navbar = () => {
             </NavLink>
 
             {user ? (
-              <div className="">
-                <button className="btn btn-ghost normal-case rounded">
-                  <img
-                    src={user.photoURL}
-                    alt="User Profile"
-                    className="h-8 w-8 rounded-full"
-                  />
-                </button>
-                <ul className="menu dropdown-content mt-2 p-2 shadow bg-white rounded-box w-40">
-                  <li>
-                    <span className="font-semibold text-gray-800">
-                      {user.displayName}
-                    </span>
-                  </li>
-                  <li>
-                    <button
-                      className="btn btn-ghost bg-red-600 normal-case rounded"
-                      onClick={handleLogout}
-                    >
-                      Logout
+              <NavLink className="pt-5 ms-3">
+                <NavLink className="pt-5">
+                  <div
+                    className="tooltip tooltip-bottom  "
+                    data-tip={user.displayName}
+                  >
+                    <button className=" me-5 ">
+                      {" "}
+                      <img
+                        src={user.photoURL}
+                        alt="User Profile"
+                        className="h-11 w-11 rounded-full text-center "
+                      />
                     </button>
-                  </li>
-                </ul>
-              </div>
+                  </div>
+                </NavLink>
+
+                <NavLink>
+                  <button
+                    className="btn btn-secondary text-white "
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </button>
+                </NavLink>
+              </NavLink>
             ) : (
               <NavLink
                 to="/login"
