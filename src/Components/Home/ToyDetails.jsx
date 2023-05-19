@@ -1,3 +1,5 @@
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { useLoaderData, useRouteLoaderData } from "react-router-dom";
 
@@ -18,33 +20,51 @@ const ToyDetails = () => {
 
   return (
     <div className="mt-20">
-      <h1 className="text-center mt-20">this is details page</h1>
-      <h1>Name : {name}</h1>
+      <h1 className="text-center text-2xl text-red-400 mt-20">
+        This is the details page
+      </h1>
 
-      <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-        <img className="object-cover w-full h-48" src={photo} />
-
-        <div className="px-6 py-4">
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">
+      <div className="card lg:card-side mx-11 mt-11 mb-11 bg-base-100 shadow-xl">
+        <figure>
+          <img
+            className="object-cover w-full h-full float-left"
+            src={photo}
+            alt="Toy"
+          />
+        </figure>
+        <div className="card-body">
+          <h2 className="card-title text-red-400 text-4xl font-bold mb-5">
             {" "}
-            Name:{name}
+            {name}
           </h2>
-          <p className="text-gray-600 mb-2">Seller: {sellerName}</p>
-          <p className="text-gray-600 mb-2">Email: {sellerEmail}</p>
-          <p className="text-2xl font-semibold text-gray-800 mb-2">${price}</p>
-          <div className="flex items-center mb-2">
-            <svg
-              className="w-5 h-5 fill-current text-yellow-500 mr-1"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2L14.2529 7.55279L20 8.36639L15.7764 12.5886L17.0607 18.1336L12 15.9771L6.93934 18.1336L8.22361 12.5886L4 8.36639L9.74706 7.55279L12 2Z" />
-            </svg>
-            <p className="text-gray-800 font-semibold">{rating}/5</p>
-          </div>
-          <p className="text-gray-800 font-semibold mb-2">
-            Available Quantity: {quantity}
+          <p className="text-gray-600 text-lg font-semibold">
+            Seller: {sellerName}
           </p>
-          <p className="text-gray-700 leading-snug">{description}</p>
+          <p className="text-gray-600 text-lg font-semibold">
+            Email: {sellerEmail}
+          </p>
+          <p className="text-2xl font-semibold text-gray-800 mb-2">
+            Price: <span className="text-red-400 font-bold"> {price}$</span>
+          </p>
+          <div className="flex items-center mb-2">
+            <h2 className="text-xl mt-4">
+              Rating : {rating}/5{" "}
+              <span className="text-yellow-400 ms-2">
+                <FontAwesomeIcon icon={faStar} />
+              </span>
+            </h2>
+          </div>
+          <p className="text-gray-600 text-lg mt-3 font-semibold mb-2">
+            Available Quantity:{" "}
+            <span className="text-red-400 font-bold"> {quantity}</span>
+          </p>
+          <p className="text-gray-600 text-lg  w-2/3">
+            <span className="text-red-400 text-lg font-bold">
+              {" "}
+              Description:
+            </span>
+            {description}
+          </p>
         </div>
       </div>
     </div>

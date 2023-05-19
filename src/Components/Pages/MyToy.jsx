@@ -16,6 +16,34 @@ const MyToy = () => {
       });
   }, [user]);
 
+  const handleDelete = (_id) => {
+    console.log(_id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/chocolate/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your Coffee has been deleted.", "success");
+              const remaining = chocolates.filter((cho) => cho._id !== _id);
+              setChocolates(remaining);
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div>
       <div className="mt-20 text-red-600 text-center text-lg font-bold">
@@ -59,12 +87,15 @@ const MyToy = () => {
                   </div>
                 </td>
                 <td>
-                  <Link className="" to={`/${toy._id}`}>
+                  <Link className="" to={`/update/${toy._id}`}>
                     <button className="btn btn-circle me-2 bg-white border border-0 hover:bg-red-200">
                       <img src="https://freesvg.org/img/edit-icon.png" alt="" />
                     </button>
                   </Link>
-                  <button className="btn btn-circle ms-3 bg-white border border-0 hover:bg-red-200">
+                  <button
+                    onClick={handleDelete}
+                    className="btn btn-circle ms-3 bg-white border border-0 hover:bg-red-200"
+                  >
                     <img
                       src="https://freesvg.org/img/jean_victor_balin_cross.png"
                       alt=""
