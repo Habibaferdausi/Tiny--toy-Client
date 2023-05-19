@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyToy = () => {
   const { user } = useContext(AuthContext);
@@ -28,16 +29,16 @@ const MyToy = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/chocolate/${_id}`, {
+        fetch(`http://localhost:5000/delete/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
             if (data.deletedCount > 0) {
-              Swal.fire("Deleted!", "Your Coffee has been deleted.", "success");
-              const remaining = chocolates.filter((cho) => cho._id !== _id);
-              setChocolates(remaining);
+              Swal.fire("Deleted!", "Your Toy has been deleted.", "success");
+              const remaining = toys.filter((toy) => toy._id !== _id);
+              setToys(remaining);
             }
           });
       }
@@ -93,7 +94,7 @@ const MyToy = () => {
                     </button>
                   </Link>
                   <button
-                    onClick={handleDelete}
+                    onClick={() => handleDelete(toy._id)}
                     className="btn btn-circle ms-3 bg-white border border-0 hover:bg-red-200"
                   >
                     <img
