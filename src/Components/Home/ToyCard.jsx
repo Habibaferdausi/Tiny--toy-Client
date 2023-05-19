@@ -30,15 +30,18 @@ const ToyCard = ({ toy }) => {
             <h2 className=" text-xl">
               Price : <span className="text-red-500 ms-2">{price} $</span>
             </h2>
-            <h2 className="text-xl mt-4">
-              Rating : {rating}{" "}
-              <span className="text-yellow-400 ms-2">
-                <FontAwesomeIcon icon={faStar} />
-              </span>
-            </h2>
+            <div className="flex items-center mb-2">
+              <svg
+                className="w-5 h-5 fill-current text-yellow-500 mr-1"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2L14.2529 7.55279L20 8.36639L15.7764 12.5886L17.0607 18.1336L12 15.9771L6.93934 18.1336L8.22361 12.5886L4 8.36639L9.74706 7.55279L12 2Z" />
+              </svg>
+              <h2 className="text-gray-800 font-semibold">{rating}/5</h2>
+            </div>
           </div>
           <div className="card-actions mt-5 lg:mt-8 justify-start">
-            <Link to={`details/${toy._id}`}>
+            <Link to={`toy/${toy._id}`}>
               <button className="btn bg-red-400 border border-0 hover:bg-purple-300 hover:text-black hover:border-o">
                 View Details →{" "}
               </button>

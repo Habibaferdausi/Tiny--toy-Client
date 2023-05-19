@@ -10,11 +10,15 @@ import MyToy from "../Pages/MyToy";
 import Blogs from "../Pages/Blogs";
 import ToyCard from "../Home/ToyCard";
 import Update from "../Pages/Update";
+import ToyDetails from "../Home/ToyDetails";
+import Error from "../Error/Error";
+import PrivateRoute from "./PrivetRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",
@@ -37,16 +41,32 @@ const router = createBrowserRouter([
         path: "/allToys",
         element: <AllToys></AllToys>,
       },
-      {
-        path: "toy/:id",
-        element: <ToyCard></ToyCard>,
-      },
+
       {
         path: "/myToys",
         element: <MyToy></MyToy>,
       },
       {
-        path: ":id",
+        path: "toy/:id",
+        element: (
+          <PrivateRoute>
+            <ToyDetails></ToyDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
+      },
+
+      {
+        path: "allToys/toy/:id",
+        element: (
+          <PrivateRoute>
+            <ToyDetails></ToyDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
+      },
+      {
+        path: "update/:id",
         element: <Update></Update>,
         loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
       },

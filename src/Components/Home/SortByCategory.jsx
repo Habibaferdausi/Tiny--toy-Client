@@ -75,7 +75,7 @@ const SortByCategory = () => {
           data-aos-duration="1000"
         >
           {toys?.map((toy) => {
-            console.log(toy); // Add this line for debugging
+            // Add this line for debugging
             return toy && <ToyCard toy={toy} key={toy._id} />;
           })}
         </div>
