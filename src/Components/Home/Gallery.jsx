@@ -3,15 +3,18 @@ import React from "react";
 const Gallery = () => {
   return (
     <div>
-      <section className="mt-20">
+      <section className="lg:mt-20 mt-7">
         <div data-aos="fade-down">
-          <h1 className="text-black text-5xl  text-center mb-5 mt-12 font-semibold ">
-            Photo Gallery
-          </h1>
+          <p
+            className="text-purple-600 font-bold  lg:mt-20 text-center text-lg lg:text-5xl"
+            style={{ fontFamily: "Goodvibes, cursive" }}
+          >
+            Photo <span className="text-blue-400 ">Gallery</span>
+          </p>
         </div>
 
         <div
-          className="grid grid-cols-2 lg:grid-cols-4 gap-2 mt-5 mx-10 mb-20"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-2 mt-5 lg:mt-11 mx-10 mb-20"
           data-aos-easing="ease-out-cubic"
           data-aos-duration="2000"
         >
@@ -22,7 +25,7 @@ const Gallery = () => {
             data-aos-duration="3000"
           >
             <img
-              src="https://img.freepik.com/free-photo/front-view-cute-little-baby-boy-cupcake-teddybear_23-2148415544.jpg?w=740&t=st=1684349528~exp=1684350128~hmac=bb0be53fa3d4893f44a56562cf01ccf54c1df3ffbe46ae701b70a4e93ff1b7d4"
+              src="https://img.freepik.com/free-photo/smiling-mother-daughter-standing-supermarket_171337-2364.jpg?w=740&t=st=1684483658~exp=1684484258~hmac=5a1c79c4d5fc38b820beb561888bffa3d97d8dae0260d8b324b6225c6270d658"
               alt=""
               className="h-full w-full object-cover"
             />
@@ -46,7 +49,7 @@ const Gallery = () => {
             data-aos-duration="3000"
           >
             <img
-              src="https://images.pexels.com/photos/6390193/pexels-photo-6390193.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              src="https://img.freepik.com/free-photo/grappling-arcade-machine-with-stuffed-toys_23-2148253108.jpg?w=360&t=st=1684483701~exp=1684484301~hmac=1d291ee9a56be21ff4dbf1248f422cac6b6988f7bda061f30f3258e3dd69a2a6"
               alt=""
               className="h-full w-full object-cover"
             />

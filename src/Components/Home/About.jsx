@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const About = () => {
   return (
-    <div className="mx-5 lg:mx-11">
+    <div className="mx-5 mb-6 lg:mx-11">
       <div>
         <div className="mx-10 text-start lg:mt-10">
           <div class="grid grid-cols-1 lg:grid-cols-2 mt-2 ">
@@ -48,7 +48,7 @@ const About = () => {
                   child has access to the magic of play. Let the adventure
                   begin!
                 </p>
-                <button className="btn bg-purple-600 mt-6 me-3 border border-0 hover:bg-rose-400">
+                <button className="btn bg-red-400 mt-6 me-3 border border-0 hover:bg-rose-400">
                   Read More
                 </button>
               </div>
