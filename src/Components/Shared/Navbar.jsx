@@ -40,7 +40,7 @@ const Navbar = () => {
           <div className="dropdown">
             <label
               tabIndex={0}
-              className="btn text-yellow-500 btn-ghost lg:hidden"
+              className="btn text-purple-600 btn-ghost lg:hidden"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -59,15 +59,15 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-yellow-100 rounded-box w-40"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-rose-100 rounded-box w-40"
             >
               <li>
                 <NavLink
                   to="/"
                   className={({ isActive }) =>
                     isActive
-                      ? "font-semibold text-white  ms-4"
-                      : "text-yellow-500  ms-4 font-semibold text-decoration-none "
+                      ? "font-semibold text-orange-600  ms-4"
+                      : "text-red-600  ms-4 font-semibold text-decoration-none "
                   }
                 >
                   Home
@@ -75,39 +75,97 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
-                  to="/about"
+                  to="/allToys"
                   className={({ isActive }) =>
                     isActive
-                      ? "font-semibold  text-white ms-4"
-                      : "text-yellow-500  ms-4 font-semibold text-decoration-none "
+                      ? "font-semibold text-orange-600  ms-4"
+                      : "text-red-600  ms-4 font-semibold text-decoration-none "
                   }
                 >
                   All Toys
                 </NavLink>
               </li>
+
               <li>
-                <NavLink
-                  to="/blogs"
-                  className={({ isActive }) =>
-                    isActive
-                      ? " font-semibold  text-white ms-4"
-                      : "text-yellow-500 ms-4 font-semibold text-decoration-none "
-                  }
-                >
-                  Blogs
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/login"
-                  className={({ isActive }) =>
-                    isActive
-                      ? " text-black font-semibold   ms-4"
-                      : " text-yellow-500   ms-4 font-semibold text-decoration-none "
-                  }
-                >
-                  Login
-                </NavLink>
+                {user && (
+                  <>
+                    <li>
+                      <NavLink
+                        to="/myToys"
+                        className={({ isActive }) =>
+                          isActive
+                            ? "font-semibold text-orange-600  ms-4"
+                            : "text-red-600  ms-4 font-semibold text-decoration-none"
+                        }
+                      >
+                        My Toys
+                      </NavLink>
+                    </li>
+                    <NavLink
+                      to="/addToy"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "font-semibold text-orange-600  ms-4"
+                          : "text-red-600  ms-4 font-semibold text-decoration-none"
+                      }
+                    >
+                      Add A Toy
+                    </NavLink>
+                  </>
+                )}
+                <li>
+                  <NavLink
+                    to="/blogs"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "font-semibold text-orange-600  ms-4"
+                        : "text-red-600  ms-4 font-semibold text-decoration-none "
+                    }
+                  >
+                    Blogs
+                  </NavLink>
+                </li>
+                <li>
+                  {user ? (
+                    <NavLink className="pt-5 ms-3">
+                      <NavLink className="pt-5">
+                        <div
+                          className="tooltip tooltip-bottom  "
+                          data-tip={user.displayName}
+                        >
+                          <button className=" me-5 ">
+                            {" "}
+                            <img
+                              src={user.photoURL}
+                              alt="User Profile"
+                              className="h-11 w-11 rounded-full text-center "
+                            />
+                          </button>
+                        </div>
+                      </NavLink>
+
+                      <NavLink>
+                        <button
+                          className="btn btn-secondary text-white "
+                          onClick={handleLogout}
+                        >
+                          Logout
+                        </button>
+                      </NavLink>
+                    </NavLink>
+                  ) : (
+                    <NavLink
+                      to="/login"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "font-semibold text-orange-600  ms-4"
+                          : "text-red-600  ms-4 font-semibold text-decoration-none"
+                      }
+                    >
+                      Login
+                    </NavLink>
+                  )}
+                </li>
               </li>
             </ul>
           </div>
@@ -121,24 +179,24 @@ const Navbar = () => {
                 className="h-20 w-40"
               />
             </div>
-            <div>
-              <h2
-                className="text-rose-600 font-bold text-xl lg:text-2xl"
-                style={{ fontFamily: "Roboto, sans-serif" }}
+            <div className="font-extrabold ">
+              <p
+                className="text-purple-600   text-lg lg:text-2xl"
+                style={{ fontFamily: "Goodvibes, cursive" }}
               >
-                TINY <span className="text-blue-400">TOYS</span>
-              </h2>
+                TINY <span className="text-blue-400 ">TOYS</span>
+              </p>
             </div>
           </div>
         </div>
         <div className=" hidden lg:flex justify-between items-center ">
-          <div className="text-lg">
+          <div className="text-xl font-bold">
             <NavLink
               to="/"
               className={({ isActive }) =>
                 isActive
-                  ? "font-semibold text-orange-600  ms-4"
-                  : "text-red-600  ms-4 font-semibold text-decoration-none "
+                  ? " text-rose-600  ms-4"
+                  : "text-purple-600  ms-4  text-decoration-none "
               }
             >
               Home
@@ -148,8 +206,8 @@ const Navbar = () => {
               to="/allToys"
               className={({ isActive }) =>
                 isActive
-                  ? "font-semibold text-orange-600  ms-4"
-                  : "text-red-600  ms-4 font-semibold text-decoration-none "
+                  ? " text-rose-600  ms-4"
+                  : "text-purple-600  ms-4  text-decoration-none "
               }
             >
               All Toys
@@ -161,8 +219,8 @@ const Navbar = () => {
                   to="/myToys"
                   className={({ isActive }) =>
                     isActive
-                      ? "font-semibold text-orange-600  ms-4"
-                      : "text-red-600  ms-4 font-semibold text-decoration-none"
+                      ? " text-rose-600  ms-4"
+                      : "text-purple-600  ms-4  text-decoration-none "
                   }
                 >
                   My Toys
@@ -172,8 +230,8 @@ const Navbar = () => {
                   to="/addToy"
                   className={({ isActive }) =>
                     isActive
-                      ? "font-semibold text-orange-600  ms-4"
-                      : "text-red-600  ms-4 font-semibold text-decoration-none"
+                      ? " text-rose-600  ms-4"
+                      : "text-purple-600  ms-4  text-decoration-none "
                   }
                 >
                   Add A Toy
@@ -185,8 +243,8 @@ const Navbar = () => {
               to="/blogs"
               className={({ isActive }) =>
                 isActive
-                  ? "font-semibold text-orange-600  ms-4"
-                  : "text-red-600  ms-4 font-semibold text-decoration-none "
+                  ? " text-rose-600  ms-4"
+                  : "text-purple-600  ms-4  text-decoration-none "
               }
             >
               Blogs
@@ -196,7 +254,7 @@ const Navbar = () => {
               <NavLink className="pt-5 ms-3">
                 <NavLink className="pt-5">
                   <div
-                    className="tooltip tooltip-bottom  "
+                    className="tooltip tooltip-bottom  text-rose-600 bg-white "
                     data-tip={user.displayName}
                   >
                     <button className=" me-5 ">
@@ -212,7 +270,7 @@ const Navbar = () => {
 
                 <NavLink>
                   <button
-                    className="btn btn-secondary text-white "
+                    className=" bg-yellow-500 text-white p-1 rounded hover:bg-rose-400 "
                     onClick={handleLogout}
                   >
                     Logout
