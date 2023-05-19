@@ -16,19 +16,24 @@ const Banner = () => {
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
             >
-              <h2
-                className="text-3xl lg:text-6xl  pt-10 lg:ms-20 text-red-400 font-bold"
-                data-aos="zoom-in-right"
-              >
-                Welcome to <br />
-                <span className="text-amber-700 mt-4 text-4xl lg:text-7xl">
-                  Zoo Zone Toys
+              <h2 className="text-3xl lg:text-6xl  pt-10 lg:ms-20 text-red-500 font-bold">
+                Welcome <span className="text-yellow-500">to</span> <br />
+                <span className="text-purple-600 mt-4 text-4xl lg:text-7xl">
+                  {" "}
+                  TINY <span className="text-blue-400">TOYS</span>
                 </span>
               </h2>
-              <p className="font-semibold w-2/3 text-xl ms-10 lg:ps-11 pt-10 lg:4xl text-yellow-600">
-                Unleash the Wild Fun! Explore the Zoo Zone with our Amazing Toy
-                Collection
-              </p>
+              <h3
+                data-aos="zoom-in-right"
+                className="font-semibold w-2/3 text-lg ms-10 lg:ps-11 pt-10 lg:text-2xl text-green-500"
+              >
+                Unleash the Wild Fun! Explore the
+                <span className="text-purple-600 ">
+                  {" "}
+                  TINY <span className="text-blue-400">TOY</span>
+                </span>{" "}
+                with our Amazing Toy Collection
+              </h3>
             </div>
             <div
               className="w-1/2"
@@ -75,13 +80,17 @@ const Banner = () => {
               data-aos-easing="ease-out-cubic"
               data-aos-duration="8000"
             >
-              <p className="text-2xl w-2/3 p-8 lg:text-3xl bg-red-100 rounded-lg text-gray-700 font-bold mx-auto">
+              <p className="text-2xl w-2/3 p-8 lg:text-3xl bg-red-100 rounded-lg text-red-400 font-bold mx-auto">
                 <img
                   className="text-center"
                   src="https://media1.giphy.com/media/L1Vbo6aeolrf7hAD4Z/giphy.gif?cid=ecf05e474niltai4gvlxoz63j61hs4zutwtytianhho1y8qy&ep=v1_gifs_search&rid=giphy.gif&ct=g"
                 />{" "}
-                Step into the Magical World of
-                <span className="text-amber-900 ms-7">Zoo Zone Toys</span>
+                Step into the{" "}
+                <span className="text-yellow-500">Magical World of</span>
+                <span className="text-purple-600 ">
+                  {" "}
+                  TINY <span className="text-blue-400">TOYS</span>
+                </span>
               </p>
             </div>
           </div>
@@ -110,13 +119,21 @@ const Banner = () => {
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
             >
-              <h5 className="text-3xl lg:text-4xl  pt-10 lg:ms-20 text-red-400 font-bold">
-                Get Ready for a Roaring Good Time at Zoo Zone Toys: Where
-                Wildlife Wonders Come to Life
+              <h5 className="text-lg lg:text-4xl  lg:pt-10 lg:ms-20 text-red-400 font-bold">
+                Get Ready for a Roaring <br />
+                Good Time at <br />
+                <span className="text-purple-600 ">
+                  {" "}
+                  TINY <span className="text-blue-400">TOYS</span>
+                </span>
+                <br />
+                <span className="text-yellow-500">
+                  Where Wildlife Wonders <br /> Come to Life
+                </span>
               </h5>
             </div>
             <div
-              className="w-1/2"
+              className="lg:w-1/2 w-full"
               data-aos="zoom-in"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
