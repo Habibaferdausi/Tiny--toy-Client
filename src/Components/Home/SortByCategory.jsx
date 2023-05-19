@@ -52,7 +52,7 @@ const SortByCategory = () => {
             </div>
           </div>
         </div>
-        <div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {toys?.map((toy) => (
             <ToyCard toy={toy} key={toy.id} />
           ))}

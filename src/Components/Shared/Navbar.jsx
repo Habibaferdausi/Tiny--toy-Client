@@ -33,9 +33,7 @@ const Navbar = () => {
     <div className="relative">
       <div
         className={`navbar fixed top-0 z-20 w-full bg-transparent ${
-          scroll
-            ? "bg-transparent bg-gradient-to-l   from-transparent to-black  "
-            : ""
+          scroll ? "bg-white  " : ""
         }`}
       >
         <div className="navbar-start">
@@ -114,14 +112,22 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <div className="lg:px-8 flex">
+          <div className="lg:px-8 flex  justify-center items-center">
             {" "}
-            <div className="btn btn-ghost normal-case  rounded">
+            <div className=" normal-case  rounded">
               <img
-                src="https://i.ibb.co/Jxwf43K/logo-removebg-preview.png"
+                src="https://i.ibb.co/8mS34pQ/Screenshot-1-removebg-preview.png"
                 alt=""
                 className="h-20 w-40"
               />
+            </div>
+            <div>
+              <h2
+                className="text-rose-600 font-bold text-xl lg:text-2xl"
+                style={{ fontFamily: "Roboto, sans-serif" }}
+              >
+                TINY <span className="text-blue-400">TOYS</span>
+              </h2>
             </div>
           </div>
         </div>
