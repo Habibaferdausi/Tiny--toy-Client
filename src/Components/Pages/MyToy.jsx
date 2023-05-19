@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
+
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import UpdateModal from "./UpdateModal";
+import { Link } from "react-router-dom";
 
 const MyToy = () => {
   const { user } = useContext(AuthContext);
@@ -40,7 +41,7 @@ const MyToy = () => {
           </thead>
           <tbody>
             {toys?.map((toy, index) => (
-              <tr className="text-center" key={toy.id}>
+              <tr className="text-center" key={toy._id}>
                 <td>{index + 1}</td>
                 <td>{toy.name}</td>
                 <td>
@@ -58,10 +59,11 @@ const MyToy = () => {
                   </div>
                 </td>
                 <td>
-                  <button className="btn btn-circle me-2 bg-white border border-0 hover:bg-red-200">
-                    <img src="https://freesvg.org/img/edit-icon.png" alt="" />
-                  </button>
-
+                  <Link className="" to={`/${toy._id}`}>
+                    <button className="btn btn-circle me-2 bg-white border border-0 hover:bg-red-200">
+                      <img src="https://freesvg.org/img/edit-icon.png" alt="" />
+                    </button>
+                  </Link>
                   <button className="btn btn-circle ms-3 bg-white border border-0 hover:bg-red-200">
                     <img
                       src="https://freesvg.org/img/jean_victor_balin_cross.png"
