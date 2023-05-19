@@ -20,42 +20,64 @@ const SortByCategory = () => {
 
   return (
     <div>
-      <div>
-        <h1 className="title text-center mt-5 p-5">Sort by categories</h1>
-        <div className="tab-container text-center">
+      <div className="mt-20 lg:pt-10">
+        <div data-aos="fade-down">
+          <p
+            className="text-purple-600 font-bold  lg:mt-20 text-center text-lg lg:text-5xl"
+            style={{ fontFamily: "Goodvibes, cursive" }}
+          >
+            Shop By <span className="text-blue-400 ">Categories</span>
+          </p>
+        </div>
+        <div
+          className="tab-container mt-10 lg:pt-11 text-center"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+        >
           <div className="text-center w-100 m-auto">
-            <div className="tabs flex justify-center items-center">
+            <div className="tabs flex justify-center text-lg items-center">
               <div
                 onClick={() => handleTabClick("teddyBear")}
                 className={`tab  tab-bordered teddyBear ${
-                  activeTab == "teddyBear" ? "text-red-500 tab-active" : ""
+                  activeTab == "teddyBear"
+                    ? "text-green-500 text-2xl font-bold pb-3 tab-active"
+                    : " text-red-400 text-2xl pb-3 font-bold"
                 }`}
               >
-                teddy
+                Teddy
               </div>
               <div
                 onClick={() => handleTabClick("dinosaur")}
                 className={`tab tab-bordered dinosaur ${
-                  activeTab == "dinosaur" ? " text-red-500 tab-active" : ""
+                  activeTab == "dinosaur"
+                    ? "text-green-500 text-2xl pb-3 font-bold tab-active"
+                    : " text-red-400 text-2xl pb-3 font-bold"
                 }`}
               >
-                dinosaur
+                Dinosaur
               </div>
               <div
                 onClick={() => handleTabClick("horse")}
                 className={`tab tab-bordered horse ${
-                  activeTab == "horse" ? "text-red-500 tab-active" : ""
+                  activeTab == "horse"
+                    ? "text-green-500 pb-3 text-2xl font-bold tab-active"
+                    : " text-red-400 pb-3 text-2xl font-bold"
                 }`}
               >
-                horse
+                Horse
               </div>
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          {toys?.map((toy) => (
-            <ToyCard toy={toy} key={toy.id} />
-          ))}
+        <div
+          className="grid grid-cols-1 lg:grid-cols-2 mx-5 lg:mx-20   gap-11 mt-5 "
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          {toys?.map((toy) => {
+            console.log(toy); // Add this line for debugging
+            return toy && <ToyCard toy={toy} key={toy._id} />;
+          })}
         </div>
       </div>
     </div>
