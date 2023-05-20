@@ -26,7 +26,7 @@ const ToyDetails = () => {
     <div className="mt-20">
       <h2 className="text-2xl lg:text-4xl text-center pt-10 lg:mt-20 text-red-400 font-bold">
         Welcome <span className="text-yellow-500">to</span>
-        <span className="text-purple-600 mt-4 text-3xl lg:text-5xl">
+        <span className="text-purple-600 mt-4 text-3xl lg:text-4xl">
           {" "}
           {name}'s<span className="text-blue-400"> Details </span> Page
         </span>
