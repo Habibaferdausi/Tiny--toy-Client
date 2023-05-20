@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Banner from "./Banner";
 import About from "./About";
 import Gallery from "./Gallery";
@@ -7,6 +7,9 @@ import SmallBanner from "./SmallBanner";
 import PostView from "./PostView";
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "TINY TOY | Home";
+  }, []);
   return (
     <div>
       <Banner></Banner>

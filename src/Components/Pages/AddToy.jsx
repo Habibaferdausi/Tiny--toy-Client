@@ -1,9 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
+
+
+  useEffect(() => {
+    document.title = "TINY TOY | Add Toy";
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

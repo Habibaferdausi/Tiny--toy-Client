@@ -16,6 +16,9 @@ const MyToy = () => {
         setToys(data);
       });
   }, [user]);
+  useEffect(() => {
+    document.title = "TINY TOY | My Toys";
+  }, []);
 
   const handleDelete = (_id) => {
     console.log(_id);

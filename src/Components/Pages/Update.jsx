@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -6,6 +6,10 @@ const Update = () => {
   const toy = useLoaderData();
   const { _id, price, quantity, description } = toy;
   console.log(toy);
+
+  useEffect(() => {
+    document.title = "TINY TOY | Update";
+  }, []);
 
   const handleUpdate = (e) => {
     e.preventDefault();

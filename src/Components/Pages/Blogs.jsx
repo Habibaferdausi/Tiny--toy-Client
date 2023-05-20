@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Blogs = () => {
+  useEffect(() => {
+    document.title = "TINY TOY | Blogs";
+  }, []);
+
   return (
     <div className="bg-gray-100 mb-7 min-h-screen">
       <div className="bg-gray-100 py-5">

@@ -13,6 +13,9 @@ const AllToys = () => {
         setToys(data);
       });
   }, []);
+  useEffect(() => {
+    document.title = "TINY TOY | All Toy";
+  }, []);
 
   const handleSearch = () => {
     fetch(`https://server-zoo-zone-toys.vercel.app/toySearch/${search}`)
@@ -22,8 +25,6 @@ const AllToys = () => {
         setToys(data);
       });
   };
-
-  const displayedToys = toys.slice(0, 20); // Limit the displayed toys to the first 20
 
   return (
     <div>
@@ -54,10 +55,7 @@ const AllToys = () => {
         </button>
       </div>
 
-      <div className="mt-20 text-red-600 text-center text-lg font-bold">
-        All Toys
-      </div>
-      <div className="overflow-x-auto mt-10">
+      <div className="overflow-x-auto mt-10 mb-20">
         <table className="table w-full">
           {/* head */}
           <thead className="">
@@ -72,7 +70,7 @@ const AllToys = () => {
             </tr>
           </thead>
           <tbody>
-            {displayedToys?.map((toy, index) => (
+            {toys?.map((toy, index) => (
               <tr className="text-center" key={toy.id}>
                 <td>{index + 1}</td>
                 <td>{toy.sellerName}</td>

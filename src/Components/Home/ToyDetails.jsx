@@ -1,6 +1,6 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData, useRouteLoaderData } from "react-router-dom";
 
 const ToyDetails = () => {
@@ -18,16 +18,24 @@ const ToyDetails = () => {
 
   console.log(toy);
 
+  useEffect(() => {
+    document.title = "TINY TOY | Details";
+  }, []);
+
   return (
     <div className="mt-20">
-      <h1 className="text-center text-2xl text-red-400 mt-20">
-        This is the details page
-      </h1>
+      <h2 className="text-2xl lg:text-4xl text-center pt-10 lg:mt-20 text-red-400 font-bold">
+        Welcome <span className="text-yellow-500">to</span>
+        <span className="text-purple-600 mt-4 text-3xl lg:text-5xl">
+          {" "}
+          {name}'s<span className="text-blue-400"> Details </span> Page
+        </span>
+      </h2>
 
       <div className="card lg:card-side mx-11 mt-11 mb-11 bg-base-100 shadow-xl">
         <figure>
           <img
-            className="object-cover w-full h-full float-left"
+            className="object-cover  w-full  h-full float-left"
             src={photo}
             alt="Toy"
           />
