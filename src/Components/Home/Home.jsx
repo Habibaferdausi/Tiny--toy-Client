@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import About from "./About";
 import Gallery from "./Gallery";
 import SortByCategory from "./SortByCategory";
+import SmallBanner from "./SmallBanner";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <About></About>
       <Gallery></Gallery>
       <SortByCategory></SortByCategory>
+      <SmallBanner></SmallBanner>
     </div>
   );
 };

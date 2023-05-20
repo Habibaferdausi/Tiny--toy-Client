@@ -2,8 +2,8 @@ import React from "react";
 
 const Blogs = () => {
   return (
-    <div className="bg-gray-200 mb-7 min-h-screen">
-      <div className="bg-gray-200 py-5">
+    <div className="bg-gray-100 mb-7 min-h-screen">
+      <div className="bg-gray-100 py-5">
         <div className="container pt-10 lg:pt-20 text-center mx-auto">
           <h2 className="text-2xl lg:text-4xl  pt-10 lg:ms-20 text-red-500 font-bold">
             Welcome <span className="text-yellow-500">to</span> <br />

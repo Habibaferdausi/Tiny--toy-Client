@@ -11,12 +11,12 @@ const About = () => {
               data-aos="flip-left"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
-              className="  rounded "
+              className="rounded w-full overflow-hidden"
             >
               <img
                 src="https://i.ibb.co/qkvxVTG/Screenshot-3.jpg"
                 alt=""
-                className=" rounded"
+                className="rounded w-full"
               />
             </div>
 

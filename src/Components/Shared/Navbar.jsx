@@ -58,7 +58,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-rose-100 rounded-box w-40"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-rose-100 rounded-box w-20"
             >
               <li>
                 <NavLink
@@ -278,7 +278,7 @@ const Navbar = () => {
               </NavLink>
             ) : (
               <NavLink
-                to="/signIn"
+                to="/login"
                 className={({ isActive }) =>
                   isActive
                     ? " text-rose-600  ms-4"

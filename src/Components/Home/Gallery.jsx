@@ -6,7 +6,7 @@ const Gallery = () => {
       <section className="lg:mt-20 mt-7">
         <div data-aos="fade-down">
           <p
-            className="text-purple-600 font-bold  lg:mt-20 text-center text-lg lg:text-5xl"
+            className="text-purple-600 font-bold  lg:mt-20 mb-7 lg:mb-20 text-center text-lg lg:text-5xl"
             style={{ fontFamily: "Goodvibes, cursive" }}
           >
             Photo <span className="text-blue-400 ">Gallery</span>

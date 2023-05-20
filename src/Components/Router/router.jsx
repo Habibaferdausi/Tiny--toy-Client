@@ -34,7 +34,6 @@ const router = createBrowserRouter([
       },
       {
         path: "addToy",
-
         element: <AddToy></AddToy>,
       },
       {
