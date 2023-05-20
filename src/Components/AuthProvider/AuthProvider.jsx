@@ -20,35 +20,77 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const createUser = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+    return createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        setUser(user);
+        localStorage.setItem("user", JSON.stringify(user));
+        return user;
+      })
+      .catch((error) => {
+        // Handle error
+      });
   };
 
   const logOut = () => {
-    return signOut(auth);
+    return signOut(auth)
+      .then(() => {
+        setUser(null);
+        localStorage.removeItem("user");
+      })
+      .catch((error) => {
+        // Handle error
+      });
   };
+
   const updateUser = (user, name, photo) => {
     return updateProfile(user, { displayName: name, photoURL: photo });
   };
 
   const signIn = (email, password) => {
-    return signInWithEmailAndPassword(auth, email, password);
+    return signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        setUser(user);
+        localStorage.setItem("user", JSON.stringify(user));
+        return user;
+      })
+      .catch((error) => {
+        // Handle error
+      });
   };
 
   const googleLogin = () => {
-    return signInWithPopup(auth, provider);
+    return signInWithPopup(auth, provider)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        setUser(user);
+        localStorage.setItem("user", JSON.stringify(user));
+        return user;
+      })
+      .catch((error) => {
+        // Handle error
+      });
   };
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (loggedInUser) => {
       setUser(loggedInUser);
+      setLoading(false);
     });
     return () => {
       unSubscribe();
     };
   }, []);
 
+  // Wait until the authentication state is loaded
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   const authInfo = {
     user,
+    setUser,
     signIn,
     updateUser,
     logOut,

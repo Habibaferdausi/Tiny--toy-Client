@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -7,18 +6,23 @@ import Swal from "sweetalert2";
 const MyToy = () => {
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
+  const [sortOrder, setSortOrder] = useState("descending");
 
   useEffect(() => {
-    fetch(`https://server-zoo-zone-toys.vercel.app/myToys/${user?.email}`)
+    fetchToys();
+    document.title = "TINY TOY | My Toys";
+  }, [user, sortOrder]);
+
+  const fetchToys = () => {
+    fetch(
+      `https://server-zoo-zone-toys.vercel.app/myToys/${user?.email}?sort=${sortOrder}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         setToys(data);
       });
-  }, [user]);
-  useEffect(() => {
-    document.title = "TINY TOY | My Toys";
-  }, []);
+  };
 
   const handleDelete = (_id) => {
     console.log(_id);
@@ -60,9 +64,18 @@ const MyToy = () => {
           </span>
         </h2>
       </div>
+      <div className="flex justify-end text-purple-600 mt-3 mr-5">
+        <select
+          value={sortOrder}
+          onChange={(e) => setSortOrder(e.target.value)}
+          className="px-3 py-2 border rounded-md"
+        >
+          <option value="descending">Sort by Price (Descending)</option>
+          <option value="ascending">Sort by Price (Ascending)</option>
+        </select>
+      </div>
       <div className="overflow-x-auto mt-10">
         <table className="table w-full">
-          {/* head */}
           <thead className="">
             <tr className="text-center">
               <th></th>
