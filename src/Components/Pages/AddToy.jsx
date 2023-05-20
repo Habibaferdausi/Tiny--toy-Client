@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
@@ -32,7 +33,7 @@ const AddToy = () => {
     };
     console.log(toys);
 
-    fetch("http://localhost:5000/addToy", {
+    fetch("https://server-zoo-zone-toys.vercel.app/addToy", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(toys),
@@ -40,6 +41,7 @@ const AddToy = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        Swal.fire("Good job!", "Your Toy is uploaded!", "success");
       });
   };
 
@@ -140,7 +142,7 @@ const AddToy = () => {
               Price:
             </label>
             <input
-              type="text"
+              type="number"
               id="price"
               name="price"
               className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

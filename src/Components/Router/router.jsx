@@ -2,7 +2,6 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Home/Home";
-import Login from "../Login/Login";
 import Register from "../Register/Register";
 import AddToy from "../Pages/AddToy";
 import AllToys from "../Pages/AllToys";
@@ -12,6 +11,7 @@ import ToyCard from "../Home/ToyCard";
 import Update from "../Pages/Update";
 import ToyDetails from "../Home/ToyDetails";
 import Error from "../Error/Error";
+import Login from "../Login/Login";
 import PrivateRoute from "./PrivetRoute";
 
 const router = createBrowserRouter([
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "login",
+        path: "signIn",
         element: <Login></Login>,
       },
       {
@@ -53,7 +53,9 @@ const router = createBrowserRouter([
             <ToyDetails></ToyDetails>
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
+
+        loader: ({ params }) =>
+          fetch(`https://server-zoo-zone-toys.vercel.app/toy/${params.id}`),
       },
 
       {
@@ -63,12 +65,15 @@ const router = createBrowserRouter([
             <ToyDetails></ToyDetails>
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
+
+        loader: ({ params }) =>
+          fetch(`https://server-zoo-zone-toys.vercel.app/toy/${params.id}`),
       },
       {
         path: "update/:id",
         element: <Update></Update>,
-        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://server-zoo-zone-toys.vercel.app/toy/${params.id}`),
       },
       {
         path: "blogs",

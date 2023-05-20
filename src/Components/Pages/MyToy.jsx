@@ -9,7 +9,7 @@ const MyToy = () => {
   const [toys, setToys] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myToys/${user?.email}`)
+    fetch(`https://server-zoo-zone-toys.vercel.app/myToys/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -29,7 +29,7 @@ const MyToy = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/delete/${_id}`, {
+        fetch(`https://server-zoo-zone-toys.vercel.app/delete/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

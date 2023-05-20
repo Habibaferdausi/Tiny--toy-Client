@@ -11,14 +11,9 @@ const PrivateRoute = ({ children }) => {
   if (user) {
     return children;
   } else {
-    const errorMessage = "Please login to access this page.";
-    Swal.fire({
-      title: "Error",
-      text: errorMessage,
-      icon: "error",
-    });
-    return <Navigate to="/login" state={{ from: location }} replace />;
+    Swal.fire("Any fool can use a computer");
   }
+  return <Navigate to="/signIn" state={{ from: location }} replace />;
 };
 
 export default PrivateRoute;

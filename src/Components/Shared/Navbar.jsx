@@ -20,7 +20,6 @@ const Navbar = () => {
     };
   }, []);
 
-  console.log(user?.email);
   const handleLogout = () => {
     logOut()
       .then()
@@ -279,11 +278,11 @@ const Navbar = () => {
               </NavLink>
             ) : (
               <NavLink
-                to="/login"
+                to="/signIn"
                 className={({ isActive }) =>
                   isActive
-                    ? "font-semibold text-orange-600  ms-4"
-                    : "text-red-600  ms-4 font-semibold text-decoration-none"
+                    ? " text-rose-600  ms-4"
+                    : "text-purple-600  ms-4  text-decoration-none "
                 }
               >
                 Login

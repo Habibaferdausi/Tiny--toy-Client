@@ -6,7 +6,7 @@ const AllToys = () => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/allToys")
+    fetch("https://server-zoo-zone-toys.vercel.app/allToys")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -15,7 +15,7 @@ const AllToys = () => {
   }, []);
 
   const handleSearch = () => {
-    fetch(`http://localhost:5000/toySearch/${search}`)
+    fetch(`https://server-zoo-zone-toys.vercel.app/toySearch/${search}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

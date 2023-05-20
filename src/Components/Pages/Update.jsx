@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Update = () => {
   const toy = useLoaderData();
@@ -20,7 +21,7 @@ const Update = () => {
     };
     console.log(updateToy);
 
-    fetch(`http://localhost:5000/updateToy/${_id}`, {
+    fetch(`https://server-zoo-zone-toys.vercel.app/updateToy/${_id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updateToy),
@@ -29,7 +30,13 @@ const Update = () => {
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
-          alert("success");
+          Swal.fire({
+            position: "top",
+            icon: "success",
+            title: "Your Toy has been updated",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
       });
   };
@@ -45,7 +52,7 @@ const Update = () => {
               Price:
             </label>
             <input
-              type="text"
+              type="number"
               id="price"
               name="price"
               className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

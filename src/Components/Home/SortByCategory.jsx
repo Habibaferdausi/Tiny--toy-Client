@@ -4,10 +4,10 @@ import ToyCard from "./ToyCard";
 
 const SortByCategory = () => {
   const [toys, setToys] = useState([]);
-  const [activeTab, setActiveTab] = useState("horse");
+  const [activeTab, setActiveTab] = useState("teddyBear");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allToys/${activeTab}`)
+    fetch(`https://server-zoo-zone-toys.vercel.app/allToys/${activeTab}`)
       .then((res) => res.json())
       .then((result) => {
         setToys(result);
