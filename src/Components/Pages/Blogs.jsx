@@ -5,9 +5,13 @@ const Blogs = () => {
     <div className="bg-gray-200 mb-7 min-h-screen">
       <div className="bg-gray-200 py-5">
         <div className="container pt-10 lg:pt-20 text-center mx-auto">
-          <h1 className="text-3xl font-bold pt-10 text-gray-800">
-            Welcome to My Blog
-          </h1>
+          <h2 className="text-2xl lg:text-4xl  pt-10 lg:ms-20 text-red-500 font-bold">
+            Welcome <span className="text-yellow-500">to</span> <br />
+            <span className="text-purple-600 mt-4 text-3xl lg:text-5xl">
+              {" "}
+              My <span className="text-blue-400">Blog Page</span>
+            </span>
+          </h2>
         </div>
       </div>
       <div className="container mx-auto py-10">
