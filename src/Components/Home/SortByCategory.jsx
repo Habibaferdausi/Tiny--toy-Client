@@ -70,7 +70,7 @@ const SortByCategory = () => {
           </div>
         </div>
         <div
-          className="grid grid-cols-1 lg:grid-cols-2 mx-5 lg:mx-20   gap-11 mt-5 "
+          className="grid grid-cols-1 lg:grid-cols-2 mx-7 lg:mx-20    gap-11 mt-5 "
           data-aos="fade-up"
           data-aos-duration="1000"
         >

@@ -32,6 +32,7 @@ const Register = () => {
       })
       .catch((error) => {
         console.log(error);
+        Swal.fire("Something Wrong");
       });
   };
 
