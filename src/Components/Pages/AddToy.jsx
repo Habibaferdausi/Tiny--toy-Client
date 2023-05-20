@@ -46,17 +46,25 @@ const AddToy = () => {
   };
 
   return (
-    <div>
-      <div className="mt-20 mb-20 ">
-        <h1 className="mt-10 pt-10 mb-10 text-center font-bold">
-          {" "}
-          Welcome <span className="text-red-500">{user?.displayName}</span> To
-          zoo Zone Toys{" "}
-        </h1>
+    <div className="bg-red-100">
+      <div className="pt-20 pb-10 ">
+        <h2 className="text-2xl lg:text-4xl text-center pt-10 lg:mt-20 text-red-400 font-bold">
+          Welcome <span className="text-yellow-500">{user?.displayName}</span>
+          <span className="text-purple-600 mt-4 text-3xl lg:text-5xl">
+            {" "}
+            To Tiny <span className="text-blue-400"> Toy </span> Page
+          </span>
+        </h2>
+        <p className="mt-5 mb-6 text-lg font-bold text-center text-green-500">
+          Add Your Toy Here
+        </p>
       </div>
 
-      <div className="flex justify-center bg-red-200   mt-10">
-        <form className="w-full max-w-lg " onSubmit={handleSubmit}>
+      <div className="flex justify-center">
+        <form
+          className="w-full max-w-lg bg-purple-200    shadow-xl rounded-lg p-8"
+          onSubmit={handleSubmit}
+        >
           <div className="mb-4">
             <label
               htmlFor="name"
@@ -193,7 +201,7 @@ const AddToy = () => {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               Upload
             </button>

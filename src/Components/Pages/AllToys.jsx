@@ -27,7 +27,17 @@ const AllToys = () => {
 
   return (
     <div>
-      <div className="flex items-center justify-center mt-20 pt-10">
+      <div className="">
+        <h2 className="text-2xl lg:text-4xl text-center pt-10 lg:mt-20 text-red-400 font-bold">
+          Welcome <span className="text-yellow-500">to</span>
+          <span className="text-purple-600 mt-4 text-3xl lg:text-5xl">
+            {" "}
+            All <span className="text-blue-400"> Toy </span> Page
+          </span>
+        </h2>
+      </div>
+
+      <div className="flex items-center justify-center mt-5 pt-10">
         <input
           type="text"
           onChange={(e) => setSearch(e.target.value)}

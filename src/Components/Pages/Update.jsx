@@ -41,9 +41,21 @@ const Update = () => {
       });
   };
   return (
-    <div>
-      <div className="flex justify-center bg-red-200   mt-10">
-        <form className="w-full max-w-lg " onSubmit={handleUpdate}>
+    <div className=" bg-red-100">
+      <div className="pt-20 pb-10 ">
+        <h2 className="text-2xl lg:text-4xl text-center pt-10 lg:mt-20 text-red-400 font-bold">
+          Update
+          <span className="text-purple-600 mt-4 text-3xl lg:text-5xl">
+            Your
+            <span className="text-blue-400"> Toy </span> Here
+          </span>
+        </h2>
+      </div>
+      <div className="flex justify-center  mt-10">
+        <form
+          className="w-full max-w-lg bg-purple-200    shadow-xl rounded-lg p-8 "
+          onSubmit={handleUpdate}
+        >
           <div className="mb-4">
             <label
               htmlFor="price"
@@ -90,9 +102,9 @@ const Update = () => {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
-              Upload
+              Update
             </button>
           </div>
         </form>

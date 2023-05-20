@@ -1,17 +1,17 @@
 import React from "react";
 
+import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+
 const Footer = () => {
   return (
-    <div>
-      <footer className="footer lg:hidden p-10 bg-red-100 text-black-content">
-        <div>
-          <div className=" normal-case  rounded">
-            <img
-              src="https://i.ibb.co/8mS34pQ/Screenshot-1-removebg-preview.png"
-              alt=""
-              className="h-20 w-40"
-            />
-          </div>
+    <footer className="bg-gray-700 text-white py-8">
+      <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center">
+        <div className="items-center mb-6 lg:mb-0">
+          <img
+            src="https://i.ibb.co/8mS34pQ/Screenshot-1-removebg-preview.png"
+            alt="Website Logo"
+            className="h-20 w-20 mr-4"
+          />
           <p
             className="text-purple-600   text-lg lg:text-2xl"
             style={{ fontFamily: "Goodvibes, cursive" }}
@@ -19,55 +19,50 @@ const Footer = () => {
             TINY <span className="text-blue-400 ">TOYS</span>
           </p>
         </div>
-        <div>
-          <div className="text-xl">
-            <h4 className="footer-title">Our Location</h4>
-            <p className="mb-3">New York City, USA</p>
-            <p>
-              <span className="footer-title pt-3">Contact us:</span> +123456789
-            </p>
-          </div>
-
-          <span className="footer-title">Social</span>
-          <div className="grid grid-flow-col gap-4">
-            <a>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="fill-current"
-              >
-                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-              </svg>
-            </a>
-            <a>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="fill-current"
-              >
-                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-              </svg>
-            </a>
-            <a>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="fill-current"
-              >
-                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-              </svg>
-            </a>
-          </div>
-          <p>Copyright © 2023 - All right reserved</p>
+        <div className="text-center mb-6 lg:mb-0">
+          <p className="text-base">
+            Contact: hf@gmail.com <br />
+            Phone: 123-456-7890
+          </p>
+          <p className="text-base block lg:inline-block ml-0 lg:ml-6">
+            Address: 1234 Main St, City, State, ZIP
+          </p>
         </div>
-      </footer>
-    </div>
+        <div>
+          <p className="text-base mb-3">Social Media Links</p>
+          <div className="flex space-x-6">
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebook className="text-white hover:text-gray-400 transition-colors duration-300 text-xl" />
+            </a>
+            <a
+              href="https://www.twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter className="text-white hover:text-gray-400 transition-colors duration-300 text-xl" />
+            </a>
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram className="text-white hover:text-gray-400 transition-colors duration-300 text-xl" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className="bg-gray-800 mt-6 py-4">
+        <div className="container mx-auto text-center">
+          <span className="text-base">
+            &copy; {new Date().getFullYear()} TINY TOY. All rights reserved.
+          </span>
+        </div>
+      </div>
+    </footer>
   );
 };
 

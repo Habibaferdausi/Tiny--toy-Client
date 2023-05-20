@@ -4,6 +4,7 @@ import About from "./About";
 import Gallery from "./Gallery";
 import SortByCategory from "./SortByCategory";
 import SmallBanner from "./SmallBanner";
+import PostView from "./PostView";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Gallery></Gallery>
       <SortByCategory></SortByCategory>
       <SmallBanner></SmallBanner>
+      <PostView></PostView>
     </div>
   );
 };

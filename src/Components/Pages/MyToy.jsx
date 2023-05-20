@@ -47,8 +47,15 @@ const MyToy = () => {
 
   return (
     <div>
-      <div className="mt-20 text-red-600 text-center text-lg font-bold">
-        All Toys
+      <div className="mt-20 text-red-400 text-center text-lg font-bold">
+        <h2 className="text-2xl lg:text-4xl  pt-10  text-red-400 font-bold">
+          Welcome <span className="text-yellow-500">to</span>
+          <span className="text-purple-600 mt-4 text-3xl lg:text-5xl">
+            {" "}
+            {user?.displayName}'s <span className="text-blue-400"> Toy </span>{" "}
+            Page
+          </span>
+        </h2>
       </div>
       <div className="overflow-x-auto mt-10">
         <table className="table w-full">
