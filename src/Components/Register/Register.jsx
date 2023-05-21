@@ -19,24 +19,29 @@ const Register = () => {
     const photoUrl = form.photoURL.value;
     console.log(name, email, password, photoUrl);
 
-    createUser(email, password)
-      .then((result) => {
-        updateUser(result.user, name, photoUrl)
-          .then(() => {
-            // User update successful
-          })
-          .catch((err) => {
-            console.log(err.message);
-          })
-          .finally(() => {
-            Swal.fire("Successfully Registered");
-          });
-        console.log(result.user);
-      })
-      .catch((error) => {
-        console.log(error);
-        Swal.fire("Something Wrong");
-      });
+    if ((name, email, photoUrl, password)) {
+      createUser(email, password)
+        .then((result) => {
+          updateUser(result.user, name, photoUrl)
+            .then(() => {
+              Swal.fire({
+                position: "top",
+                icon: "success",
+                title: "Successfully Register",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            })
+            .catch((err) => {
+              console.log(err.message);
+            });
+          console.log(result.user);
+          Swal.fire("Something Wrong! Try again");
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    }
   };
 
   return (

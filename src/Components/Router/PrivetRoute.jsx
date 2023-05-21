@@ -1,26 +1,29 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Navigate, useLocation } from "react-router-dom";
-
-import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const PrivateRoute = ({ children }) => {
-  const { user, setUser } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const location = useLocation();
+  const [authChecked, setAuthChecked] = useState(false);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
+    if (loading === false) {
+      setAuthChecked(true);
     }
-  }, [setUser]);
+  }, [loading]);
+
+  if (!authChecked) {
+    return null; // Return null or a loading indicator while authentication status is being determined
+  }
 
   if (user) {
     return children;
   } else {
     Swal.fire("You have to log in first to view details");
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
-  return <Navigate to="/login" state={{ from: location }} replace />;
 };
 
 export default PrivateRoute;
