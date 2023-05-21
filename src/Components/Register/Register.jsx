@@ -23,10 +23,13 @@ const Register = () => {
       .then((result) => {
         updateUser(result.user, name, photoUrl)
           .then(() => {
-            Swal.fire("Successfully Registered");
+            // User update successful
           })
           .catch((err) => {
             console.log(err.message);
+          })
+          .finally(() => {
+            Swal.fire("Successfully Registered");
           });
         console.log(result.user);
       })

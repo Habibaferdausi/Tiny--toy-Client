@@ -83,9 +83,12 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  // Wait until the authentication state is loaded
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="mt-40 text-center">
+        Loading...<progress className="progress w-56"></progress>
+      </div>
+    );
   }
 
   const authInfo = {
