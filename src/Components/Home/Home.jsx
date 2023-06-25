@@ -5,6 +5,7 @@ import Gallery from "./Gallery";
 import SortByCategory from "./SortByCategory";
 import SmallBanner from "./SmallBanner";
 import PostView from "./PostView";
+import Services from "./Services";
 
 const Home = () => {
   useEffect(() => {
@@ -13,6 +14,7 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
+      <Services></Services>
       <About></About>
       <Gallery></Gallery>
       <SortByCategory></SortByCategory>
