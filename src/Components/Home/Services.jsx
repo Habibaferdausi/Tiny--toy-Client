@@ -15,12 +15,12 @@ const Services = () => {
             style={{ fontFamily: "Goodvibes, cursive" }}
           >
             We
-            <span className="text-blue-400 ms-2">Provide</span>
+            <span className="text-blue-400 ps-4">Provide</span>
           </p>
         </div>
         <div
-          className="grid  grid-cols-2 lg:grid-cols-4 gap-7 mx-7 lg:mx-20"
-          data-aos="flip-right"
+          className="grid  grid-cols-2 lg:grid-cols-4 gap-7 mb-9 mx-7 mt-5 lg:mx-20"
+          data-aos="fade-right"
           data-aos-easing="ease-out-cubic"
           data-aos-duration="2000"
         >
@@ -29,9 +29,11 @@ const Services = () => {
               <figure>
                 <Lottie animationData={sell} loop={true} className="h-40" />
               </figure>
-              <div className="card-body">
-                <h2 className="card-title">Sale</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+              <div className="card-body text-center">
+                <h1 className="font-semibold text-2xl text-red-400">Sale</h1>
+                <p className=" text-base text-gray-700">
+                  Find the perfect toy at a discounted price
+                </p>
               </div>
             </div>
           </div>
@@ -40,9 +42,13 @@ const Services = () => {
               <figure>
                 <Lottie animationData={store} loop={true} className="h-40" />
               </figure>
-              <div className="card-body">
-                <h1 className="card-title">Online Store</h1>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+              <div className="card-body text-center">
+                <h1 className="font-semibold text-2xl text-red-400">
+                  Online Store
+                </h1>
+                <p className=" text-base text-gray-700">
+                  Shop quality toys online, bring play home.
+                </p>
               </div>
             </div>
           </div>
@@ -51,9 +57,11 @@ const Services = () => {
               <figure>
                 <Lottie animationData={call} loop={true} className="h-40 " />
               </figure>
-              <div className="card-body">
-                <h1 className="card-title">Support</h1>
-                <p>Call our support team 24/7</p>
+              <div className="card-body text-center">
+                <h1 className="font-semibold text-2xl text-red-400">Support</h1>
+                <p className=" text-base text-gray-700">
+                  Instant assistance from our dedicated support call center.
+                </p>
               </div>
             </div>
           </div>
@@ -67,9 +75,14 @@ const Services = () => {
                 />
                 ;
               </figure>
-              <div className="card-body">
-                <h2 className="card-title"> Delivery</h2>
-                <p>Fast And Easy Home Delivery</p>
+              <div className="card-body text-center">
+                <h1 className="font-semibold text-2xl text-red-400">
+                  {" "}
+                  Delivery
+                </h1>
+                <p className=" text-base text-gray-700">
+                  Joyful delivery, bringing joy to your doorstep..
+                </p>
               </div>
             </div>
           </div>

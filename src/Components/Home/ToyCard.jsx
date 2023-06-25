@@ -22,7 +22,7 @@ const ToyCard = ({ toy }) => {
   console.log(toy);
   return (
     <div>
-      <div className="card card-compact mx-auto bg-base-100 shadow-xl">
+      <div className="card card-compact w-96 bg-base-100 shadow-xl">
         <figure>
           <img src={photo} alt="" className="h-80 w-80" />
         </figure>

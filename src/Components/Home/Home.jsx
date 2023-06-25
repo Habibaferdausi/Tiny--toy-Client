@@ -14,8 +14,9 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <Services></Services>
       <About></About>
+      <Services></Services>
+
       <Gallery></Gallery>
       <SortByCategory></SortByCategory>
       <SmallBanner></SmallBanner>
